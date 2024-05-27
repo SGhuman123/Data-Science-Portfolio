@@ -10,5 +10,5 @@ The model used is a Random Forest Regressor. Upon hyperparameter-tuning using `R
 
 Using feature importance, I figured that the most important feature that would affect the bulldozer's price would be the year that the bulldozer was made.
 
-<img width="368" alt="image" src="https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/5a8fbdca-980d-4da1-a2e4-b8b3b62137c8">
+<img width="500" alt="image" src="https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/5a8fbdca-980d-4da1-a2e4-b8b3b62137c8">
 
