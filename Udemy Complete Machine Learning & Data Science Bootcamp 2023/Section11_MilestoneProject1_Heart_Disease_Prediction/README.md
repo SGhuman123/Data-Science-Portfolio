@@ -1,3 +1,7 @@
+# Heart Disease Prediction Project
+
+The objective of this project is to find the best possible model to predict the risk of someone getting a heart-disease so that people who are at risk of getting a heart disease can get preventive treatment before contracting the heart disease.
+
 The file titled **`end-to-end-heart-disease-classification.ipynb`**, this delves into exploring the problem of heart disease classification.
 
 The topics covered are:
