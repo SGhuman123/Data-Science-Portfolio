@@ -21,5 +21,4 @@ The following was covered:
 - Steps in modelling for multi-class image classification with CNNs
  - Same as above (but this time with a different dataset)
 
-In the file titled ` 03_Practice_CNN.ipynb` this was my solution to the practice problem I had to do as part of the course exercise.
-
+In the file titled ` 03_Practice_CNN.ipynb` this was my solution to the practice problem I had to do as part of the course exercise with a focus on classifying between baseball ⚾️ and basketballs 🏀.
