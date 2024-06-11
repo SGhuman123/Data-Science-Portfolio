@@ -1,6 +1,6 @@
 # Transfer Learning (Scaling-up, FoodVision Mini)
 
-In the file titled 06_Transfer_Learning_Scaling_up.ipynb` was dedicated to learning about Transfer Learning (Fine-tuning).
+In the file titled `06_Transfer_Learning_Scaling_up.ipynb` was dedicated to learning about Transfer Learning (Fine-tuning).
 
 **"As is" transfer learning** is when you take a pre-trained model as it is and apply it to your task without any changes.
 
