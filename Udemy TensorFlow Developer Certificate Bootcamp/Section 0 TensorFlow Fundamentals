@@ -1,0 +1,661 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN2MA8x6UbzgeDIK8ubP3Cu"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "# Import TensorFlow\n",
+        "import tensorflow as tf\n",
+        "print(tf.__version__)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VfLBBv-ccQmc",
+        "outputId": "8adb9dcd-d9cf-4fbf-c3df-84b6c651d2b7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2.12.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Exercise\n",
+        "\n",
+        "## 🛠 00 TensorFlow Fundamentals Exercises\n",
+        "\n",
+        "1. Create a vector, scalar, matrix and tensor with values of your choosing using `tf.constant()`.\n",
+        "2. Find the **shape**, **rank** and **size** of the tensors you created in 1.\n",
+        "3. Create two tensors containing random values between 0 and 1 with shape `[5, 300]`.\n",
+        "4. Multiply the two tensors you created in 3 using **matrix multiplication**.\n",
+        "5. Multiply the two tensors you created in 3 using **dot product**.\n",
+        "6. Create a tensor with **random values** between 0 and 1 with shape `[224, 224, 3]`.\n",
+        "7. Find the **min** and **max values** of the tensor you created in 6.\n",
+        "8. Created a tensor with random values of shape `[1, 224, 224, 3]` then **squeeze** it to change the shape to `[224, 224, 3]`.\n",
+        "9. Create a tensor with shape `[10]` using your own choice of values, then find the **index** which has the **maximum value**.\n",
+        "10. **One-hot** encode the tensor you created in 9.\n",
+        "\n",
+        "### 1. Create a vector, scalar, matrix and tensor with values of your choosing using `tf.constant()`.\n"
+      ],
+      "metadata": {
+        "id": "AiMP_PfebJoO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Create tensors with tf.constant()\n",
+        "scalar = tf.constant(7)\n",
+        "\n",
+        "# Create a vector\n",
+        "vector = tf.constant([10, 10])\n",
+        "\n",
+        "# Create a matrix (has more than 1 dimension)\n",
+        "matrix = tf.constant([[10, 7],\n",
+        "                     [7, 10]])\n",
+        "scalar, vector, matrix"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xUh365jbbpFN",
+        "outputId": "b18f69ea-6d80-4381-f2bc-6f89ff40ed7b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(<tf.Tensor: shape=(), dtype=int32, numpy=7>,\n",
+              " <tf.Tensor: shape=(2,), dtype=int32, numpy=array([10, 10], dtype=int32)>,\n",
+              " <tf.Tensor: shape=(2, 2), dtype=int32, numpy=\n",
+              " array([[10,  7],\n",
+              "        [ 7, 10]], dtype=int32)>)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 2. Find the **shape**, **rank** and **size** of the tensors you created in 1."
+      ],
+      "metadata": {
+        "id": "z3U2dvGVbpnj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "scalar.shape, scalar.ndim, tf.size(scalar)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gondJP7kbr_h",
+        "outputId": "5e968934-e77b-4e14-a61f-d45a48b61a83"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(TensorShape([]), 0, <tf.Tensor: shape=(), dtype=int32, numpy=1>)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "vector.shape, vector.ndim, tf.size(vector)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ns8RsN_AdU_M",
+        "outputId": "93b980b6-8f9b-489c-b083-4d6bfaf05d33"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(TensorShape([2]), 1, <tf.Tensor: shape=(), dtype=int32, numpy=2>)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "matrix.shape, matrix.ndim, tf.size(matrix)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GrVaGPtqdVCW",
+        "outputId": "3d236681-6e08-4af0-c210-5e3e5308804d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(TensorShape([2, 2]), 2, <tf.Tensor: shape=(), dtype=int32, numpy=4>)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 3. Create two tensors containing random values between 0 and 1 with shape `[5, 300]`.\n"
+      ],
+      "metadata": {
+        "id": "xkD0nvPxbsp_"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Create two random (but the same) tensors\n",
+        "random_1 = tf.random.Generator.from_seed(42) # set seed for reproducibility\n",
+        "random_1 = random_1.uniform(shape=(5, 300))\n",
+        "random_2 = tf.random.Generator.from_seed(42)\n",
+        "random_2 = random_2.uniform(shape=(5, 300))\n",
+        "\n",
+        "random_1, random_2"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BGCgAY5Lbviq",
+        "outputId": "008c2d0d-6d96-4dc8-c405-aff63aabe8da"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(<tf.Tensor: shape=(5, 300), dtype=float32, numpy=\n",
+              " array([[0.7493447 , 0.73561966, 0.45230794, ..., 0.5816356 , 0.5627874 ,\n",
+              "         0.7491298 ],\n",
+              "        [0.6438937 , 0.6938418 , 0.04408407, ..., 0.04825139, 0.5099728 ,\n",
+              "         0.26470542],\n",
+              "        [0.21373153, 0.6683699 , 0.78474844, ..., 0.19658887, 0.22030771,\n",
+              "         0.3766911 ],\n",
+              "        [0.68190825, 0.29304636, 0.5415933 , ..., 0.37111604, 0.76053166,\n",
+              "         0.7538099 ],\n",
+              "        [0.8011551 , 0.48830473, 0.13867617, ..., 0.20301867, 0.8378159 ,\n",
+              "         0.19984365]], dtype=float32)>,\n",
+              " <tf.Tensor: shape=(5, 300), dtype=float32, numpy=\n",
+              " array([[0.7493447 , 0.73561966, 0.45230794, ..., 0.5816356 , 0.5627874 ,\n",
+              "         0.7491298 ],\n",
+              "        [0.6438937 , 0.6938418 , 0.04408407, ..., 0.04825139, 0.5099728 ,\n",
+              "         0.26470542],\n",
+              "        [0.21373153, 0.6683699 , 0.78474844, ..., 0.19658887, 0.22030771,\n",
+              "         0.3766911 ],\n",
+              "        [0.68190825, 0.29304636, 0.5415933 , ..., 0.37111604, 0.76053166,\n",
+              "         0.7538099 ],\n",
+              "        [0.8011551 , 0.48830473, 0.13867617, ..., 0.20301867, 0.8378159 ,\n",
+              "         0.19984365]], dtype=float32)>)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 4. Multiply the two tensors you created in 3 using **matrix multiplication**.\n"
+      ],
+      "metadata": {
+        "id": "bTkRb_ixbwFh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tf.matmul(random_1, tf.transpose(random_2))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "T7FEyXYIbx77",
+        "outputId": "e3ee50a7-27aa-4f49-c624-667c372c146c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(5, 5), dtype=float32, numpy=\n",
+              "array([[101.66054 ,  73.4119  ,  75.69495 ,  77.3254  ,  76.02343 ],\n",
+              "       [ 73.4119  ,  96.01821 ,  68.701004,  71.45271 ,  74.41574 ],\n",
+              "       [ 75.69495 ,  68.701004,  97.2023  ,  75.038734,  72.08196 ],\n",
+              "       [ 77.3254  ,  71.45271 ,  75.038734,  98.26957 ,  74.205154],\n",
+              "       [ 76.02343 ,  74.41574 ,  72.08196 ,  74.205154,  99.33444 ]],\n",
+              "      dtype=float32)>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 5. Multiply the two tensors you created in 3 using **dot product**.\n"
+      ],
+      "metadata": {
+        "id": "72z_o188bydv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tf.tensordot(random_1, tf.transpose(random_2), axes=1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "c-YhbAGUbyyV",
+        "outputId": "1984e554-71b0-4346-e2ce-fbea3a61451f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(5, 5), dtype=float32, numpy=\n",
+              "array([[101.66054 ,  73.4119  ,  75.69495 ,  77.3254  ,  76.02343 ],\n",
+              "       [ 73.4119  ,  96.01821 ,  68.701004,  71.45271 ,  74.41574 ],\n",
+              "       [ 75.69495 ,  68.701004,  97.2023  ,  75.038734,  72.08196 ],\n",
+              "       [ 77.3254  ,  71.45271 ,  75.038734,  98.26957 ,  74.205154],\n",
+              "       [ 76.02343 ,  74.41574 ,  72.08196 ,  74.205154,  99.33444 ]],\n",
+              "      dtype=float32)>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 6. Create a tensor with **random values** between 0 and 1 with shape `[224, 224, 3]`.\n"
+      ],
+      "metadata": {
+        "id": "ongpj6ADbzEW"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "random_3 = tf.random.Generator.from_seed(42)\n",
+        "random_3 = random_3.uniform(shape=(224, 224, 3))\n",
+        "random_3"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "u2sMd8wmbzYs",
+        "outputId": "1bb4782f-292a-4c25-9b28-054084e134bc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(224, 224, 3), dtype=float32, numpy=\n",
+              "array([[[0.7493447 , 0.73561966, 0.45230794],\n",
+              "        [0.49039817, 0.1889317 , 0.52027524],\n",
+              "        [0.8736881 , 0.46921718, 0.63932586],\n",
+              "        ...,\n",
+              "        [0.8035464 , 0.8265822 , 0.84540355],\n",
+              "        [0.16108847, 0.48667014, 0.6170937 ],\n",
+              "        [0.22355545, 0.93454087, 0.5319209 ]],\n",
+              "\n",
+              "       [[0.7508148 , 0.46019256, 0.14229465],\n",
+              "        [0.10500956, 0.72874916, 0.89662087],\n",
+              "        [0.85220826, 0.76973283, 0.11408448],\n",
+              "        ...,\n",
+              "        [0.38387823, 0.72712064, 0.7561674 ],\n",
+              "        [0.70352066, 0.22680473, 0.24423313],\n",
+              "        [0.39240444, 0.32533252, 0.39407527]],\n",
+              "\n",
+              "       [[0.74291146, 0.54543686, 0.32094967],\n",
+              "        [0.6671035 , 0.8900143 , 0.64271927],\n",
+              "        [0.5317905 , 0.21345353, 0.71189904],\n",
+              "        ...,\n",
+              "        [0.53968227, 0.7233304 , 0.7900686 ],\n",
+              "        [0.99334645, 0.857829  , 0.67977047],\n",
+              "        [0.8087704 , 0.06597769, 0.62171316]],\n",
+              "\n",
+              "       ...,\n",
+              "\n",
+              "       [[0.84861326, 0.6271888 , 0.7023717 ],\n",
+              "        [0.46894228, 0.4787085 , 0.1912539 ],\n",
+              "        [0.39595473, 0.5948347 , 0.6859689 ],\n",
+              "        ...,\n",
+              "        [0.55004704, 0.81996536, 0.6626886 ],\n",
+              "        [0.30092347, 0.3980503 , 0.17080736],\n",
+              "        [0.9393351 , 0.3430456 , 0.15847623]],\n",
+              "\n",
+              "       [[0.07707131, 0.57546544, 0.841964  ],\n",
+              "        [0.4417436 , 0.88804233, 0.8017428 ],\n",
+              "        [0.6850492 , 0.70381224, 0.38806987],\n",
+              "        ...,\n",
+              "        [0.01135123, 0.46678603, 0.1724801 ],\n",
+              "        [0.6351286 , 0.471022  , 0.22208214],\n",
+              "        [0.5487895 , 0.9890213 , 0.12894046]],\n",
+              "\n",
+              "       [[0.712723  , 0.740348  , 0.8293475 ],\n",
+              "        [0.15965354, 0.2230674 , 0.02333987],\n",
+              "        [0.7165916 , 0.8322334 , 0.33391452],\n",
+              "        ...,\n",
+              "        [0.8585105 , 0.13414657, 0.3103006 ],\n",
+              "        [0.74841535, 0.5148909 , 0.25076163],\n",
+              "        [0.5981357 , 0.20435822, 0.66445065]]], dtype=float32)>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 7. Find the **min** and **max values** of the tensor you created in 6.\n"
+      ],
+      "metadata": {
+        "id": "Jfh8jZbpb8hD"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tf.reduce_min(random_3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-U1sWnutb8ul",
+        "outputId": "8cdc8b20-8f0d-44e7-ba65-ee1c355f2b87"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(), dtype=float32, numpy=4.053116e-06>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tf.reduce_max(random_3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "soVah0uJo8lt",
+        "outputId": "c07eb809-f14c-46cc-996b-cfcaf596e517"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(), dtype=float32, numpy=0.99998736>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 8. Created a tensor with random values of shape `[1, 224, 224, 3]` then **squeeze** it to change the shape to `[224, 224, 3]`.\n"
+      ],
+      "metadata": {
+        "id": "prdMzA_Eb86G"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "G = tf.constant(tf.random.uniform(shape=[1, 224, 224, 3]), shape=(224, 224, 3))\n",
+        "G"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0GkK1Paab9Fd",
+        "outputId": "5d11f1d9-1cc2-45d8-d73d-5707c061da0a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(224, 224, 3), dtype=float32, numpy=\n",
+              "array([[[0.03665972, 0.7145779 , 0.18752158],\n",
+              "        [0.32418346, 0.26303506, 0.71813536],\n",
+              "        [0.7396916 , 0.6528202 , 0.902928  ],\n",
+              "        ...,\n",
+              "        [0.00773609, 0.35564935, 0.795172  ],\n",
+              "        [0.10636318, 0.08625293, 0.3259908 ],\n",
+              "        [0.57766724, 0.57656443, 0.07803369]],\n",
+              "\n",
+              "       [[0.05111325, 0.9114883 , 0.5831479 ],\n",
+              "        [0.04128194, 0.9266465 , 0.4333998 ],\n",
+              "        [0.7027496 , 0.4280454 , 0.7810149 ],\n",
+              "        ...,\n",
+              "        [0.8094337 , 0.40035915, 0.01343906],\n",
+              "        [0.20889986, 0.8075074 , 0.794997  ],\n",
+              "        [0.5532471 , 0.36268938, 0.99219453]],\n",
+              "\n",
+              "       [[0.05983186, 0.9647262 , 0.03149009],\n",
+              "        [0.14132714, 0.05133331, 0.22772741],\n",
+              "        [0.00702715, 0.9502692 , 0.04852223],\n",
+              "        ...,\n",
+              "        [0.39714086, 0.79567456, 0.42042315],\n",
+              "        [0.82059145, 0.37209356, 0.60003006],\n",
+              "        [0.629406  , 0.7075541 , 0.4591074 ]],\n",
+              "\n",
+              "       ...,\n",
+              "\n",
+              "       [[0.09894109, 0.5463258 , 0.38142335],\n",
+              "        [0.7028507 , 0.61919606, 0.7600409 ],\n",
+              "        [0.61924684, 0.8896421 , 0.17164898],\n",
+              "        ...,\n",
+              "        [0.27584302, 0.4581157 , 0.24718845],\n",
+              "        [0.6602565 , 0.14381933, 0.62877226],\n",
+              "        [0.7890786 , 0.92537606, 0.1509093 ]],\n",
+              "\n",
+              "       [[0.05306363, 0.22770762, 0.73823655],\n",
+              "        [0.74194384, 0.12997127, 0.014557  ],\n",
+              "        [0.02186561, 0.58569443, 0.12648273],\n",
+              "        ...,\n",
+              "        [0.8909135 , 0.87256753, 0.84172344],\n",
+              "        [0.38033092, 0.6318277 , 0.45527542],\n",
+              "        [0.29676354, 0.758916  , 0.4554689 ]],\n",
+              "\n",
+              "       [[0.713536  , 0.1176039 , 0.57476354],\n",
+              "        [0.6176909 , 0.80918634, 0.6362262 ],\n",
+              "        [0.46067607, 0.50383925, 0.52180684],\n",
+              "        ...,\n",
+              "        [0.11435676, 0.11834824, 0.8599125 ],\n",
+              "        [0.67494535, 0.9108541 , 0.37680364],\n",
+              "        [0.29557455, 0.29220223, 0.58324516]]], dtype=float32)>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 9. Create a tensor with shape `[10]` using your own choice of values, then find the **index** which has the **maximum value**.\n"
+      ],
+      "metadata": {
+        "id": "RTc5oH7LcDtr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "random_4 = tf.random.Generator.from_seed(42) # set seed for reproducibility\n",
+        "random_4 = random_4.uniform(shape=[10], minval=0, maxval=9, dtype=tf.int32)\n",
+        "random_4.numpy()  , tf.argmax(random_4).numpy()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1Q_Gt5uwcD5g",
+        "outputId": "a0cbb5d0-ff93-418d-f062-bbdb0225c76f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([6, 3, 6, 3, 3, 3, 4, 0, 4, 6], dtype=int32), 0)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 44
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 10. **One-hot** encode the tensor you created in 9."
+      ],
+      "metadata": {
+        "id": "LhXkun40cEIf"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tf.one_hot(tf.cast(random_4, dtype=tf.int32), depth=4)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rIlbGBYxcElt",
+        "outputId": "85374867-9a3b-45d1-bca7-d11987d46336"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<tf.Tensor: shape=(10, 4), dtype=float32, numpy=\n",
+              "array([[0., 0., 0., 0.],\n",
+              "       [0., 0., 0., 1.],\n",
+              "       [0., 0., 0., 0.],\n",
+              "       [0., 0., 0., 1.],\n",
+              "       [0., 0., 0., 1.],\n",
+              "       [0., 0., 0., 1.],\n",
+              "       [0., 0., 0., 0.],\n",
+              "       [1., 0., 0., 0.],\n",
+              "       [0., 0., 0., 0.],\n",
+              "       [0., 0., 0., 0.]], dtype=float32)>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 45
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "Z0rJHqVBqQjl"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
