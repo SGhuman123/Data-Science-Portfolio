@@ -21,4 +21,10 @@ The following is covered:
   - Finding our model's most wrong predictions
 - Making predictions with our Food Vision model on custom images of food
 
-In the file titled ` 06_Practice_Transfer_Learning_Scaling_up.ipynb` this was my solution to the practice problem I had to do as part of the course exercise.
+In the file titled ` 06_Practice_Transfer_Learning_Scaling_up.ipynb` this was my solution to the practice problem I had to do as part of the course exercise. Some of the things done were:
+1. Train a feature-extraction transfer learning model for 10 epochs on the same data and compare its performance versus a model which used feature extraction for 5 epochs and fine-tuning for 5 epochs (like we've used in this notebook). Which method is better?
+
+2. Recreate the first model (the feature extraction model) with mixed_precision turned on.
+    - Does it make the model train faster?
+    - Does it affect the accuracy or performance of our model?
+    - What's the advantage of using mixed_precision training?
