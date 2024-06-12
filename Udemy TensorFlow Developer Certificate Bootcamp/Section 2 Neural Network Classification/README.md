@@ -33,3 +33,6 @@ In the file titled `02_Exercise_neural_network_classification_with_tensorflow.ip
 5. Recreate [TensorFlow's](https://www.tensorflow.org/api_docs/python/tf/keras/activations/softmax) [softmax activation function](https://en.wikipedia.org/wiki/Softmax_function) in your own code. Make sure it can accept a tensor and return that tensor after having the softmax function applied to it.
 6. Create a function (or write code) to visualize multiple image predictions for the fashion MNIST at the same time. Plot at least three different images and their prediction labels at the same time. Hint: [see the classification tutorial in the TensorFlow documentation](https://www.tensorflow.org/tutorials/keras/classification) for ideas.
 7. Make a function to show an image of a certain class of the fashion MNIST dataset and make a prediction on it. For example, plot 3 images of the `T-shirt` class with their predictions.
+
+![image](https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/44cea7d5-3bb1-45ff-93a2-d7f1fcee2b4f)
+
