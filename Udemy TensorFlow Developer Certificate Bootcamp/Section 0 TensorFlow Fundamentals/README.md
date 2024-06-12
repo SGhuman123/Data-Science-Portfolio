@@ -6,13 +6,4 @@ I also learnt how to shuffle the order of elements in a tensor. Moreover, I lear
 
 Moreover, I learnt about matrix multiplication and dot product. I also utilized aggregation which involves finding the min, max, mean and sum on the whole tensor. On top of that, I found the positional maximum and minimum. Lastly, I found out how to squeeze a tensor (remove all single dimensions) and about one-hot encoding.
 
-In the file titled ` 00_Exercises_TensorFlow_Fundamentals.ipynb ` this was my solution to the practice problem I had to do as part of the course exercise. I did the following:
-
-1. Create your regression dataset (or make the one we created in "Create data to view and fit" bigger) and build fit a model to it.
-2. Try building a neural network with 4 Dense layers and fitting it to your own regression dataset, how does it perform?
-3. Try and improve the results we got on the insurance dataset, some things you might want to try include:
-    - Building a larger model (how does one with 4 dense layers go?).
-    - Increasing the number of units in each layer.
-    - Look up the documentation of Adam and find out what the first parameter is, what happens if you increase it by 10x?
-    - What happens if you train for longer (say 300 epochs instead of 200)?
-4. Import the Boston pricing dataset from TensorFlow `tf.keras.datasets` and model it.
+In the file titled ` 00_Exercises_TensorFlow_Fundamentals.ipynb ` this was my solution to the practice problem I had to do as part of the course exercise. 
