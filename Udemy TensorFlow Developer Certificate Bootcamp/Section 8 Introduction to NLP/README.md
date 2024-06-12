@@ -48,6 +48,7 @@ In the file titled ` 08_Exercise_nlp_in_tensorflow.ipynb` this was my solution t
 5. Combine the ensemble predictions using the majority vote (mode), how does this perform compared to averaging the prediction probabilities of each model?
 
 6. Make a confusion matrix with the best-performing model's predictions on the validation set and the validation ground truth labels.
+_________________________________________
 
 The files titled ` 08_Kaggle_Tensorflow.ipynb ` and ` 08_Kaggle_Part_2_Tensorflow.ipynb ` were the files used to develop my submission to the [Natural Language Processing with Disaster Tweets on Kaggle]( https://www.kaggle.com/c/nlp-getting-started/data). 
 
