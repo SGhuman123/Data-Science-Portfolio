@@ -1,6 +1,6 @@
 # SkimLit NLP Project
 
-In the file titled ` 09_Exercise_project.ipynb` this was dedicated to build an NLP model to make reading medical abstracts easier. I replicated the deep learning model behind the 2017 paper [*PubMed 200k RCT: a Dataset for Sequential Sentence Classification in Medical Abstracts*](https://arxiv.org/abs/1710.06071).
+In the file titled ` 09_Exercise_project.ipynb` was dedicated to build an NLP model to make reading medical abstracts easier. I replicated the deep learning model behind the 2017 paper [*PubMed 200k RCT: a Dataset for Sequential Sentence Classification in Medical Abstracts*](https://arxiv.org/abs/1710.06071).
 
 ![image](https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learning/main/images/09-skimlit-overview-input-and-output.png)
 
@@ -39,10 +39,10 @@ And returns the following output:
 * Downloading a text dataset ([PubMed RCT200k from GitHub](https://github.com/Franck-Dernoncourt/pubmed-rct))
 * Writing a preprocessing function to prepare our data for modelling
 * Setting up a series of modelling experiments
-  * Making a baseline (TF-IDF classifier)
-  * Deep models with different combinations of: token embeddings, character embeddings, pretrained embeddings, positional embeddings
+   * Making a baseline (TF-IDF classifier)
+   * Deep models with different combinations of token embeddings, character embeddings, pre-trained embeddings, positional embeddings
 * Building our first multimodal model (taking multiple types of data inputs)
-  * Replicating the model architecture from https://arxiv.org/abs/1612.05251
+   * Replicating the model architecture from https://arxiv.org/abs/1612.05251
 * Find the most wrong predictions
 * Making predictions on PubMed abstracts from the wild
 
@@ -51,10 +51,10 @@ Some of the models experimented with involved:
 
 * Model 0: Getting a baseline. TF-IDF Multinomial Naive Bayes
 * Model 1: Conv1D with token embeddings
-* Model 2: Feature extraction with pretrained token embeddings
+* Model 2: Feature extraction with pre-trained token embeddings
 * Model 3: Conv1D with character embeddings
-* Model 4: Combining pretrained token embeddings + character embeddings (hybrid embedding layer)
-* Model 5: Transfer learning with pretrained token embeddings + character embeddings + positional embeddings
+* Model 4: Combining pre-trained token embeddings + character embeddings (hybrid embedding layer)
+* Model 5: Transfer learning with pre-trained token embeddings + character embeddings + positional embeddings
 
 
 The file titled ` 09_Exercise_project.ipynb` also encapsulates my solution to the practice problem I had to do as part of the course exercise. This involved the following:
@@ -63,16 +63,16 @@ The file titled ` 09_Exercise_project.ipynb` also encapsulates my solution to th
 * [`tf.keras.callbacks.ModelCheckpoint`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint) to save the model's best weights only.
 * [`tf.keras.callbacks.EarlyStopping`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping) to stop the model from training once the validation loss has stopped improving for ~3 epochs.
 
-2. Checkout the [Keras guide on using pretrained GloVe embeddings](https://keras.io/examples/nlppretrained_word_embeddings/). Can you get this working with one of our models?
+2. Check out the [Keras guide on using pre-trained GloVe embeddings](https://keras.io/examples/nlppretrained_word_embeddings/). Can you get this working with one of our models?
 * Hint: You'll want to incorporate it with a custom token [Embedding](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding) layer.
 * It's up to you whether or not you fine-tune the GloVe embeddings or leave them frozen.
 
 
-3. Try replacing the TensorFlow Hub Universal Sentence Encoder pretrained embedding for the [TensorFlow Hub BERT PubMed expert](https://tfhub.dev/google/experts/bert/pubmed/2) (a language model pretrained on PubMed texts) pretrained embedding. Does this effect results?
-* Note: Using the BERT PubMed expert pretrained embedding requires an extra preprocessing step for sequences (as detailed in the [TensorFlow Hub guide](https://tfhub.dev/google/experts/bert/pubmed/2)).
+3. Try replacing the TensorFlow Hub Universal Sentence Encoder pre-trained embedding for the [TensorFlow Hub BERT PubMed expert](https://tfhub.dev/google/experts/bert/pubmed/2) (a language model pre-trained on PubMed texts) pre-trained embedding. Does this effect results?
+* Note: Using the BERT PubMed expert pre-trained embedding requires an extra preprocessing step for sequences (as detailed in the [TensorFlow Hub guide](https://tfhub.dev/google/experts/bert/pubmed/2)).
 * Does the BERT model beat the results mentioned in this paper? https://arxiv.org/pdf/1710.06071.pdf
 
-4. What happens if you were to merge our `line_number` and `total_lines` features for each sequence? For example, created a `X_of_Y` feature instead? Does this effect model performance?
+4. What happens if you were to merge our `line_number` and `total_lines` features for each sequence? For example, created a `X_of_Y` feature instead? Does this affect model performance?
 * Another example: `line_number=1` and `total_lines=11` turns into `line_of_X=1_of_11`.
 
 5. Write a function (or series of functions) to take a sample abstract string, preprocess it (in the same way our model has been trained), make a prediction on each sequence in the abstract and return the abstract in the format:
@@ -82,4 +82,3 @@ The file titled ` 09_Exercise_project.ipynb` also encapsulates my solution to th
 * `PREDICTED_LABEL`: `SEQUENCE`
 * ...
   * You can find your own unstructured RCT abstract from PubMed or try this one from: [Baclofen promotes alcohol abstinence in alcohol dependent cirrhotic patients with hepatitis C virus (HCV) infection](https://pubmed.ncbi.nlm.nih.gov/22244707/).
-![image](https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/9d5dec81-91d0-489c-ad62-6d3a662295c8)
