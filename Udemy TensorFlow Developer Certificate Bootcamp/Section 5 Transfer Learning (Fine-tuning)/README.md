@@ -23,5 +23,10 @@ The following was covered:
 ![Picture 1](https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/05eb0680-dde2-4a04-a488-7607a5c6d65e)
 
  
-In the file titled ` 05_Practice_transfer_learning_in_tensorflow_part_2_fine_tuning.ipynb` this was my solution to the practice problem I had to do as part of the course exercise.
+In the file titled ` 05_Practice_transfer_learning_in_tensorflow_part_2_fine_tuning.ipynb` this was my solution to the practice problem I had to do as part of the course exercise. Some of the tasks done were:
+1. Use feature-extraction to train a transfer learning model on 10% of the Food Vision data for 10 epochs using [tf.keras.applications.EfficientNetB0](https://www.tensorflow.org/api_docs/python/tf/keras/applications/EfficientNetB0) as the base model. Use the [ModelCheckpoint](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint) callback to save the weights to file.
+2. Fine-tune the last 20 layers of the base model you trained in 2 for another 10 epochs. How did it go?
+3. Fine-tune the last 30 layers of the base model you trained in 2 for another 10 epochs. How did it go?
+4. Write a function to visualize an image from any dataset (train or test file) and any class (e.g. "steak", "pizza"... etc), visualize it and make a prediction on it using a trained model.
 
+![image](https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/8de60eab-5d66-4761-ac5e-7e1bae9c571c)
