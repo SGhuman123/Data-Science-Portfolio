@@ -17,9 +17,9 @@ The following was covered:
 * Saving and loading a trained model
 * Find the most wrong predictions
 
-[image](https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learning/main/images/08-text-classification-inputs-and-outputs.png)
+![image](https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learning/main/images/08-text-classification-inputs-and-outputs.png)
 
-[image](https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learning/main/images/08-tokenization-vs-embedding.png)
+![image](https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learning/main/images/08-tokenization-vs-embedding.png)
 
 Some of the models I experimented with were:
 
@@ -61,4 +61,4 @@ Some ideas I experimented with are:
 
 As of 12 June 2024, I managed to acquire a rank of 286 with an F1-score of 0.81673.
 
-![image](https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/db2850e4-af7d-41d3-8a16-b9a22b7754b7)
+<img width="1300" alt="Screenshot 2024-06-12 at 9 07 41 PM" src="https://github.com/SGhuman123/Data-Science-Portfolio/assets/63066897/2df4ded2-9cde-4123-bd4f-a0148025b82d">
