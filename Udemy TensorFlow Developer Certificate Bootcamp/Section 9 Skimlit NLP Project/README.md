@@ -60,25 +60,25 @@ Some of the models experimented with involved:
 The file titled ` 09_Exercise_project.ipynb` also encapsulates my solution to the practice problem I had to do as part of the course exercise. This involved the following:
 
 1. Train `model_5` on all of the data in the training dataset for as many epochs until it stops improving. Since this might take a while, you might want to use:
-* [`tf.keras.callbacks.ModelCheckpoint`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint) to save the model's best weights only.
-* [`tf.keras.callbacks.EarlyStopping`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping) to stop the model from training once the validation loss has stopped improving for ~3 epochs.
+  * [`tf.keras.callbacks.ModelCheckpoint`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint) to save the model's best weights only.
+  * [`tf.keras.callbacks.EarlyStopping`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping) to stop the model from training once the validation loss has stopped improving for ~3 epochs.
 
 2. Check out the [Keras guide on using pre-trained GloVe embeddings](https://keras.io/examples/nlppretrained_word_embeddings/). Can you get this working with one of our models?
-* Hint: You'll want to incorporate it with a custom token [Embedding](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding) layer.
-* It's up to you whether or not you fine-tune the GloVe embeddings or leave them frozen.
+  * Hint: You'll want to incorporate it with a custom token [Embedding](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding) layer.
+  * It's up to you whether or not you fine-tune the GloVe embeddings or leave them frozen.
 
 
 3. Try replacing the TensorFlow Hub Universal Sentence Encoder pre-trained embedding for the [TensorFlow Hub BERT PubMed expert](https://tfhub.dev/google/experts/bert/pubmed/2) (a language model pre-trained on PubMed texts) pre-trained embedding. Does this effect results?
-* Note: Using the BERT PubMed expert pre-trained embedding requires an extra preprocessing step for sequences (as detailed in the [TensorFlow Hub guide](https://tfhub.dev/google/experts/bert/pubmed/2)).
-* Does the BERT model beat the results mentioned in this paper? https://arxiv.org/pdf/1710.06071.pdf
+  * Note: Using the BERT PubMed expert pre-trained embedding requires an extra preprocessing step for sequences (as detailed in the [TensorFlow Hub guide](https://tfhub.dev/google/experts/bert/pubmed/2)).
+  * Does the BERT model beat the results mentioned in this paper? https://arxiv.org/pdf/1710.06071.pdf
 
 4. What happens if you were to merge our `line_number` and `total_lines` features for each sequence? For example, created a `X_of_Y` feature instead? Does this affect model performance?
-* Another example: `line_number=1` and `total_lines=11` turns into `line_of_X=1_of_11`.
+  * Another example: `line_number=1` and `total_lines=11` turns into `line_of_X=1_of_11`.
 
 5. Write a function (or series of functions) to take a sample abstract string, preprocess it (in the same way our model has been trained), make a prediction on each sequence in the abstract and return the abstract in the format:
-* `PREDICTED_LABEL`: `SEQUENCE`
-* `PREDICTED_LABEL`: `SEQUENCE`
-* `PREDICTED_LABEL`: `SEQUENCE`
-* `PREDICTED_LABEL`: `SEQUENCE`
-* ...
-  * You can find your own unstructured RCT abstract from PubMed or try this one from: [Baclofen promotes alcohol abstinence in alcohol dependent cirrhotic patients with hepatitis C virus (HCV) infection](https://pubmed.ncbi.nlm.nih.gov/22244707/).
+  * `PREDICTED_LABEL`: `SEQUENCE`
+  * `PREDICTED_LABEL`: `SEQUENCE`
+  * `PREDICTED_LABEL`: `SEQUENCE`
+  * `PREDICTED_LABEL`: `SEQUENCE`
+  * ...
+    * You can find your own unstructured RCT abstract from PubMed or try this one from: [Baclofen promotes alcohol abstinence in alcohol dependent cirrhotic patients with hepatitis C virus (HCV) infection](https://pubmed.ncbi.nlm.nih.gov/22244707/).
