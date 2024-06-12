@@ -22,8 +22,8 @@ In the file titled ` 04_Practice_Feature_Extraction.ipynb` this was my solution 
 2. Name 3 different image classification models on TensorFlow Hub that we haven't used.
 
 3. Build a model to classify images of two different things you've taken photos of.
-  - You can use any feature extraction layer from TensorFlow Hub you like for this.
-  - You should aim to have at least 10 images of each class, for example, to build a fridge versus oven classifier, you'll want 10 images of fridges and 10 images of ovens.
+    - You can use any feature extraction layer from TensorFlow Hub you like for this.
+    - You should aim to have at least 10 images of each class, for example, to build a fridge versus oven classifier, you'll want 10 images of fridges and 10 images of ovens.
 
 
 4. What is the current best-performing model on ImageNet?
