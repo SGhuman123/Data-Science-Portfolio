@@ -26,9 +26,9 @@
 -- GROUP BY hotel, arrival_date_year, arrival_date_month, month_int
 -- ORDER BY hotel, arrival_date_year, month_int;
 
--- The simple solution tells us that for Bard 2018 September is the busiest month
--- The simple solution tells us that for Bard 2019 August is the busiest month
--- The simple solution tells us that for Bard 2020 February is the busiest month
+-- The simple solution tells us that for Botanical 2018 September is the busiest month
+-- The simple solution tells us that for Botanical 2019 August is the busiest month
+-- The simple solution tells us that for Botanical 2020 February is the busiest month
 -- However, we do not clearly know which year is the busiest
 
 -- SELECT
@@ -53,7 +53,7 @@
 -- GROUP BY hotel, arrival_date_year
 -- ORDER BY hotel, arrival_date_year;
 
--- From here we can now observe that the busiest year for Bard was in 2019 whereas the busiest year for Bloom was in 2019.
+-- From here we can now observe that the busiest year for Botanical was in 2019 whereas the busiest year for Bristol was in 2019.
 -- However, this fails to consider the fact that the calculation only takes into account the number of guest upon arrival
 -- and fails to take into account the fact that guest tend to stay at hotels overnight
 
@@ -347,8 +347,8 @@ ORDER BY hotel, arrival_date_year;
 -- Therefore this leads to the next assumption that is
 -- The spillover days would be insignificant in comparison the the days which are actually capture in a given time horizon be it a month or a year.
 
--- Overall for Bard Hotel its busiest year is in 2019 with August as its busiest month
--- Overall for Bloom Hotel its busiest year is in 2019 with August as its busiest month
+-- Overall for Botanical Hotel its busiest year is in 2019 with August as its busiest month
+-- Overall for Bristol Hotel its busiest year is in 2019 with August as its busiest month
 
 
 
