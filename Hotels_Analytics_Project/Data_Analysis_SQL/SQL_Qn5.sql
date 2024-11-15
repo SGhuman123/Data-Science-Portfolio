@@ -12,7 +12,7 @@ SELECT
   sentiment,
   COUNT(*) AS review_count,
   AVG(hb."Rating") AS average_rating
-FROM "public"."MHG_hotel_reviews" hb
+FROM "public"."hotel_reviews" hb
 INNER JOIN sentiment_words sw ON hb."Review" ILIKE '%' || sw.word || '%'
 GROUP BY sentiment;
 
