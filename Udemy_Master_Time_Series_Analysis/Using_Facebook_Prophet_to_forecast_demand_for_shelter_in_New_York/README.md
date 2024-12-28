@@ -6,9 +6,7 @@ In this notebook, I used Facebook Prophet to forecast the demand for shelters in
       * Facebook Prophet has a lot of quirks.
 The Date variable must be called ds and
 the time-series has to be y. Additionally,
-the date must be in the format yyyymm-dd. Finally, don't forget to prepare
-the events like was shown in the
-practice tutorial.
+the date must be in the format yyyymm-dd.
 
 2. **Training and test set**
     * In Time-Series, the training and test
@@ -27,13 +25,8 @@ assess the accuracy of the model.
 
 4. **Visualization**
     * Facebook Prophet has very cool built-in
-visualization functions. Use them! As a
-visual learner myself, I like to see
-pretty graphs to know what the model
-tells me.
+visualization functions.
 
 5. **Parameter Tuning**
     * Do the Parameter Tuning while
-performing cross-validation. Tune
-the parameters we tuned in the
-practice tutorial.
+performing cross-validation. 
