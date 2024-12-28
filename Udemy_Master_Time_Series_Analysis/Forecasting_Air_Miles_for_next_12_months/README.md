@@ -1,4 +1,4 @@
-This notebook is focused on Time Series Forecasting using the Holt-Winters method, also known as Triple Exponential Smoothing. It uses the 'airmiles' dataset to demonstrate the process.
+This notebook is focused on Time Series Forecasting using the Holt-Winters method, also known as Triple Exponential Smoothing. It uses the `airmiles.csv` dataset to demonstrate the process.
 
 > **The aim is to forecast the Airmiles taken by passengers in the future horizon of 12 months. It involves the following steps:**
 
@@ -26,7 +26,7 @@ This notebook is focused on Time Series Forecasting using the Holt-Winters metho
 4. Model Assessment:
 
     * The model's performance is evaluated using metrics like Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Absolute Percentage Error (MAPE).
-    * A function model_assessment is defined to plot the training, test, and forecast data along with calculating and printing the metrics.
+    * A function `model_assessment` is defined to plot the training, test, and forecast data along with calculating and printing the metrics.
 
 5. Future Predictions:
 
